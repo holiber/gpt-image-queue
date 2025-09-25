@@ -84,10 +84,10 @@ const ChatInterface = observer(() => {
       <div className="flex h-full items-center justify-center">
         <div className="text-center">
           <Bot className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-gray-100">
+          <h3 className="mt-4 text-lg font-medium text-gray-900">
             No chat selected
           </h3>
-          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-2 text-sm text-gray-500">
             Create a new chat to start generating images
           </p>
         </div>
@@ -96,10 +96,10 @@ const ChatInterface = observer(() => {
   }
 
   return (
-    <div className="flex h-full flex-col bg-white dark:bg-gray-900">
+    <div className="flex h-full flex-col bg-white">
       {/* Chat Header */}
-      <div className="border-b bg-white px-6 py-4 dark:bg-gray-900">
-        <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+      <div className="border-b bg-white px-6 py-4">
+        <h1 className="text-lg font-semibold text-gray-900">
           {currentChat.title}
         </h1>
       </div>
@@ -108,15 +108,15 @@ const ChatInterface = observer(() => {
       <QueueStatus />
 
       {/* Messages */}
-      <ScrollArea className="flex-1 p-6 bg-white dark:bg-gray-900" ref={scrollAreaRef}>
+      <ScrollArea className="flex-1 p-6 bg-white" ref={scrollAreaRef}>
         <div className="space-y-6">
           {currentChat.messages.length === 0 ? (
             <div className="text-center">
               <Bot className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-gray-100">
+              <h3 className="mt-4 text-lg font-medium text-gray-900">
                 Start a conversation
               </h3>
-              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+              <p className="mt-2 text-sm text-gray-500">
                 Ask me to generate images for you!
               </p>
             </div>
@@ -129,8 +129,8 @@ const ChatInterface = observer(() => {
                 }`}
               >
                 {message.role === 'assistant' && (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
-                    <Bot className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
+                    <Bot className="h-4 w-4 text-gray-600" />
                   </div>
                 )}
                 
@@ -138,7 +138,7 @@ const ChatInterface = observer(() => {
                   className={`max-w-[80%] rounded-lg px-4 py-2 ${
                     message.role === 'user'
                       ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100'
+                      : 'bg-gray-100 text-gray-900'
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
@@ -163,10 +163,10 @@ const ChatInterface = observer(() => {
           
           {isProcessing && (
             <div className="flex justify-start gap-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
-                <Bot className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
+                <Bot className="h-4 w-4 text-gray-600" />
               </div>
-              <div className="rounded-lg bg-gray-100 px-4 py-2 dark:bg-gray-800">
+              <div className="rounded-lg bg-gray-100 px-4 py-2">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 animate-bounce rounded-full bg-gray-400"></div>
                   <div className="h-2 w-2 animate-bounce rounded-full bg-gray-400" style={{ animationDelay: '0.1s' }}></div>
@@ -179,7 +179,7 @@ const ChatInterface = observer(() => {
       </ScrollArea>
 
       {/* Input */}
-      <div className="border-t bg-white p-6 dark:bg-gray-900">
+      <div className="border-t bg-white p-6">
         <div className="flex gap-2">
           <Input
             ref={inputRef}
@@ -199,7 +199,7 @@ const ChatInterface = observer(() => {
           </Button>
         </div>
         {!chatStore.apiKey && (
-          <p className="mt-2 text-sm text-red-600 dark:text-red-400">
+          <p className="mt-2 text-sm text-red-600">
             Please set your OpenAI API key in settings to generate images.
           </p>
         )}

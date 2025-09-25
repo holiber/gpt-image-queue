@@ -76,7 +76,7 @@ const ImageTaskComponent = observer(({ task }: ImageTaskComponentProps) => {
   };
 
   return (
-    <div className="rounded-lg border bg-gray-50 p-4 dark:bg-gray-800">
+    <div className="rounded-lg border bg-gray-50 p-4">
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
@@ -84,11 +84,11 @@ const ImageTaskComponent = observer(({ task }: ImageTaskComponentProps) => {
             <span className="text-sm font-medium">{getStatusText()}</span>
           </div>
           {task.description && (
-            <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">
+            <p className="text-sm font-medium text-gray-800 mb-2">
               {task.description}
             </p>
           )}
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <p className="text-sm text-gray-600 mb-3">
             <span className="font-medium">Prompt:</span> {task.prompt}
           </p>
           
@@ -103,10 +103,10 @@ const ImageTaskComponent = observer(({ task }: ImageTaskComponentProps) => {
                   onError={() => setImageError(true)}
                 />
               ) : (
-                <div className="flex items-center justify-center h-48 bg-gray-100 dark:bg-gray-800 rounded-lg border">
+                <div className="flex items-center justify-center h-48 bg-gray-100 rounded-lg border">
                   <div className="text-center">
                     <ImageIcon className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500">
                       Image preview not available
                     </p>
                     <p className="text-xs text-gray-400 mt-1">
@@ -119,7 +119,7 @@ const ImageTaskComponent = observer(({ task }: ImageTaskComponentProps) => {
           )}
           
           {task.error && (
-            <div className="text-sm text-red-600 dark:text-red-400 mb-3">
+            <div className="text-sm text-red-600 mb-3">
               Error: {task.error}
             </div>
           )}

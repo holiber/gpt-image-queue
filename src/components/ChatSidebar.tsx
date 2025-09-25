@@ -54,7 +54,7 @@ const ChatSidebar = observer(() => {
   };
 
   return (
-    <div className="flex h-full flex-col bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-full flex-col bg-gray-50">
       {/* Header */}
       <div className="p-4">
         <Button
@@ -75,9 +75,9 @@ const ChatSidebar = observer(() => {
           {chatStore.chats.map((chat) => (
             <div
               key={chat.id}
-              className={`group relative flex items-center rounded-lg p-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${
+              className={`group relative flex items-center rounded-lg p-2 text-sm transition-colors hover:bg-gray-100 ${
                 chatStore.currentChatId === chat.id
-                  ? 'bg-gray-200 dark:bg-gray-700'
+                  ? 'bg-gray-200'
                   : ''
               }`}
               onClick={() => handleChatSelect(chat.id)}

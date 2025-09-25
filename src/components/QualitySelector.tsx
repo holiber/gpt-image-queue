@@ -17,7 +17,7 @@ const QualitySelector = observer(() => {
   return (
     <div className="flex items-center gap-4">
       <div className="flex items-center gap-2">
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <span className="text-sm font-medium text-gray-700">
           Quality:
         </span>
         <div className="flex gap-1">
@@ -41,7 +41,7 @@ const QualitySelector = observer(() => {
       </div>
 
       <div className="flex items-center gap-2">
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <span className="text-sm font-medium text-gray-700">
           Size:
         </span>
         <div className="flex gap-1">
