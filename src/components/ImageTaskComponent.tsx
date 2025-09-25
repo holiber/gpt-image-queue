@@ -17,20 +17,30 @@ const ImageTaskComponent = observer(({ task }: ImageTaskComponentProps) => {
     if (!task.imageUrl) return;
 
     try {
-      // Create a human-readable filename
+      // Create a more human-readable filename
       const timestamp = new Date().toISOString().split('T')[0];
-      const sanitizedPrompt = task.prompt
-        .replace(/[^a-zA-Z0-9\s]/g, '')
-        .replace(/\s+/g, '_')
-        .slice(0, 50);
       
-      const filename = `gpt_image_${timestamp}_${sanitizedPrompt}.png`;
+      // Clean and format the prompt for filename
+      let filename = task.prompt
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9\s-]/g, '') // Remove special chars except spaces and hyphens
+        .replace(/\s+/g, '-') // Replace spaces with hyphens
+        .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+        .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
+        .slice(0, 40); // Limit length
+      
+      // If filename is too short or empty, use a fallback
+      if (filename.length < 3) {
+        filename = 'generated-image';
+      }
+      
+      const finalFilename = `gpt-image-${timestamp}-${filename}.png`;
       
       // Use a different approach to avoid CORS issues
       // Create a temporary anchor element to trigger download
       const link = document.createElement('a');
       link.href = task.imageUrl;
-      link.download = filename;
+      link.download = finalFilename;
       link.target = '_blank';
       
       // Add to DOM, click, and remove
