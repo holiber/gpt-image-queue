@@ -96,7 +96,7 @@ const ChatInterface = observer(() => {
   }
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col bg-white dark:bg-gray-900">
       {/* Chat Header */}
       <div className="border-b bg-white px-6 py-4 dark:bg-gray-900">
         <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
@@ -108,7 +108,7 @@ const ChatInterface = observer(() => {
       <QueueStatus />
 
       {/* Messages */}
-      <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
+      <ScrollArea className="flex-1 p-6 bg-white dark:bg-gray-900" ref={scrollAreaRef}>
         <div className="space-y-6">
           {currentChat.messages.length === 0 ? (
             <div className="text-center">

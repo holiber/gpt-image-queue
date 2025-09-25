@@ -20,9 +20,9 @@ const MainLayout = observer(() => {
   }, []);
 
   return (
-    <div className="flex h-screen bg-white dark:bg-gray-900">
+    <div className="flex min-h-screen bg-white dark:bg-gray-900">
       {/* Top Bar */}
-      <div className="absolute top-0 left-0 right-0 z-10 bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <div className="fixed top-0 left-0 right-0 z-10 bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div className="flex items-center justify-between px-6 py-3">
           <div className="flex items-center gap-4">
             <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
@@ -35,9 +35,9 @@ const MainLayout = observer(() => {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex w-full pt-16">
+      <div className="flex w-full pt-16 min-h-screen">
         {/* Sidebar */}
-        <div className="w-64 border-r border-gray-200 dark:border-gray-700">
+        <div className="w-64 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
           <div className="flex h-full flex-col">
             {/* Sidebar Content */}
             <div className="flex-1 pt-4">
@@ -47,7 +47,7 @@ const MainLayout = observer(() => {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1">
+        <div className="flex-1 bg-white dark:bg-gray-900">
           <ChatInterface />
         </div>
       </div>
