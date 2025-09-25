@@ -4,7 +4,7 @@ A web application for generating images using the ChatGPT API (DALL-E 3). Built 
 
 ## 🚀 Live Demo
 
-**[Try the app live on GitHub Pages](https://holiber.github.io/gpt-image-queue/)**
+**[Try the app live on GitHub Pages](https://holiber.github.io/gpt-image-queue/)** (opens in new window)
 
 ## Features
 
@@ -20,7 +20,7 @@ A web application for generating images using the ChatGPT API (DALL-E 3). Built 
 
 ### 🎯 Quick Start
 
-**Want to try it immediately?** Visit the [live demo](https://holiber.github.io/gpt-image-queue/) and add your OpenAI API key in settings!
+**Want to try it immediately?** Visit the [live demo](https://holiber.github.io/gpt-image-queue/) (opens in new window) and add your OpenAI API key in settings!
 
 ### Prerequisites
 
