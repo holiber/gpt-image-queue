@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Settings, Key, Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,10 +16,21 @@ import {
 } from '@/components/ui/dialog';
 import { chatStore } from '@/stores/chatStore';
 
-const SettingsModal = observer(() => {
-  const [isOpen, setIsOpen] = useState(false);
+interface SettingsModalProps {
+  autoOpen?: boolean;
+}
+
+const SettingsModal = observer(({ autoOpen = false }: SettingsModalProps) => {
+  const [isOpen, setIsOpen] = useState(autoOpen);
   const [apiKey, setApiKey] = useState(chatStore.apiKey);
   const [showApiKey, setShowApiKey] = useState(false);
+
+  // Update isOpen when autoOpen prop changes
+  useEffect(() => {
+    if (autoOpen) {
+      setIsOpen(true);
+    }
+  }, [autoOpen]);
 
   const handleSave = () => {
     chatStore.setApiKey(apiKey);

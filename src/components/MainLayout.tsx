@@ -19,6 +19,9 @@ const MainLayout = observer(() => {
     }
   }, []);
 
+  // Check if API key is missing and should auto-open settings
+  const shouldAutoOpenSettings = !chatStore.apiKey && chatStore.isInitialized;
+
   return (
     <div className="flex min-h-screen bg-white">
       {/* Top Bar */}
@@ -30,7 +33,7 @@ const MainLayout = observer(() => {
             </h1>
             <QualitySelector />
           </div>
-          <SettingsModal />
+          <SettingsModal autoOpen={shouldAutoOpenSettings} />
         </div>
       </div>
 
