@@ -2,6 +2,8 @@
 
 A web application for generating images using the ChatGPT API (DALL-E 3). Built with Next.js 15, TypeScript, Tailwind CSS, shadcn/ui, and MobX.
 
+![GPT Image Queue Screenshot](./public/screenshot.png)
+
 ## 🚀 Live Demo
 
 **[Try the app live on GitHub Pages](https://holiber.github.io/gpt-image-queue/)** (opens in new window)
@@ -13,7 +15,6 @@ A web application for generating images using the ChatGPT API (DALL-E 3). Built 
 - 📋 **Task Queue**: Sequential processing of multiple image generation requests
 - 💾 **Local Storage**: API key and chat history stored locally
 - 📱 **Responsive Design**: Works on desktop and mobile devices
-- 🌙 **Dark Mode**: Built-in dark mode support
 - ⬇️ **Download Images**: Download generated images with human-readable names
 
 ## Getting Started
