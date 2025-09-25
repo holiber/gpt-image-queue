@@ -81,7 +81,7 @@ Make prompts detailed and specific for DALL-E 3. Include style, composition, lig
 
     try {
       return JSON.parse(content);
-    } catch (error) {
+    } catch (parseError) {
       throw new Error('Failed to parse ChatGPT response as JSON');
     }
   }

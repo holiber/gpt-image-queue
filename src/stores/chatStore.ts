@@ -267,14 +267,14 @@ class ChatStore {
       if (saved) {
         try {
           const parsedChats = JSON.parse(saved);
-          this.chats = parsedChats.map((chat: any) => ({
+          this.chats = parsedChats.map((chat: Chat) => ({
             ...chat,
             createdAt: new Date(chat.createdAt),
             updatedAt: new Date(chat.updatedAt),
-            messages: chat.messages.map((msg: any) => ({
+            messages: chat.messages.map((msg: Message) => ({
               ...msg,
               timestamp: new Date(msg.timestamp),
-              imageTasks: msg.imageTasks?.map((task: any) => ({
+              imageTasks: msg.imageTasks?.map((task: ImageTask) => ({
                 ...task,
                 createdAt: new Date(task.createdAt),
               })),
