@@ -32,7 +32,7 @@ A web application for generating images using the ChatGPT API (DALL-E 3). Built 
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/holiber/gpt-image-queue.git
 cd gpt-image-queue
 ```
 

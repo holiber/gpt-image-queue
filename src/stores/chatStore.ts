@@ -39,6 +39,7 @@ class ChatStore {
   isInitialized: boolean = false;
   taskQueue: ImageTask[] = [];
   isProcessingQueue: boolean = false;
+  isSidebarCollapsed: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -293,6 +294,30 @@ class ChatStore {
     this.loadApiKey();
     this.loadImageQuality();
     this.loadImageSize();
+    this.loadSidebarState();
+  }
+
+  toggleSidebar() {
+    this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('gpt-image-queue-sidebar-collapsed', this.isSidebarCollapsed.toString());
+    }
+  }
+
+  setSidebarCollapsed(collapsed: boolean) {
+    this.isSidebarCollapsed = collapsed;
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('gpt-image-queue-sidebar-collapsed', collapsed.toString());
+    }
+  }
+
+  loadSidebarState() {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('gpt-image-queue-sidebar-collapsed');
+      if (saved !== null) {
+        this.isSidebarCollapsed = saved === 'true';
+      }
+    }
   }
 }
 

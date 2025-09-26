@@ -59,11 +59,12 @@ const ChatSidebar = observer(() => {
       <div className="p-4">
         <Button
           onClick={handleNewChat}
-          className="w-full justify-start gap-2"
+          className={`w-full justify-start gap-2 ${chatStore.isSidebarCollapsed ? 'px-2' : ''}`}
           variant="outline"
+          title={chatStore.isSidebarCollapsed ? 'New Chat' : undefined}
         >
           <Plus className="h-4 w-4" />
-          New Chat
+          {!chatStore.isSidebarCollapsed && 'New Chat'}
         </Button>
       </div>
 
@@ -79,44 +80,49 @@ const ChatSidebar = observer(() => {
                 chatStore.currentChatId === chat.id
                   ? 'bg-gray-200'
                   : ''
-              }`}
+              } ${chatStore.isSidebarCollapsed ? 'px-2' : ''}`}
               onClick={() => handleChatSelect(chat.id)}
+              title={chatStore.isSidebarCollapsed ? chat.title : undefined}
             >
               <MessageSquare className="mr-2 h-4 w-4 flex-shrink-0" />
               
-              {editingChatId === chat.id ? (
-                <Input
-                  value={editingTitle}
-                  onChange={(e) => setEditingTitle(e.target.value)}
-                  onBlur={handleEditSave}
-                  onKeyDown={handleKeyDown}
-                  className="h-6 text-sm"
-                  autoFocus
-                  onClick={(e) => e.stopPropagation()}
-                />
-              ) : (
-                <span className="flex-1 truncate">{chat.title}</span>
-              )}
+              {!chatStore.isSidebarCollapsed && (
+                <>
+                  {editingChatId === chat.id ? (
+                    <Input
+                      value={editingTitle}
+                      onChange={(e) => setEditingTitle(e.target.value)}
+                      onBlur={handleEditSave}
+                      onKeyDown={handleKeyDown}
+                      className="h-6 text-sm"
+                      autoFocus
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  ) : (
+                    <span className="flex-1 truncate">{chat.title}</span>
+                  )}
 
-              {/* Action buttons */}
-              <div className="absolute right-2 flex gap-1 opacity-0 group-hover:opacity-100">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-6 w-6 p-0"
-                  onClick={(e) => handleEditStart(chat.id, chat.title, e)}
-                >
-                  <Edit3 className="h-3 w-3" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-6 w-6 p-0 text-red-600 hover:text-red-700"
-                  onClick={(e) => handleDeleteChat(chat.id, e)}
-                >
-                  <Trash2 className="h-3 w-3" />
-                </Button>
-              </div>
+                  {/* Action buttons */}
+                  <div className="absolute right-2 flex gap-1 opacity-0 group-hover:opacity-100">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-6 w-6 p-0"
+                      onClick={(e) => handleEditStart(chat.id, chat.title, e)}
+                    >
+                      <Edit3 className="h-3 w-3" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-6 w-6 p-0 text-red-600 hover:text-red-700"
+                      onClick={(e) => handleDeleteChat(chat.id, e)}
+                    >
+                      <Trash2 className="h-3 w-3" />
+                    </Button>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
